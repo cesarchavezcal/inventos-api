@@ -4,7 +4,10 @@ const glossary = require('./../../glossary');
 const express = require('express');
 const { check } = require('express-validator');
 // ⚙️ Controllers
-const userController = require('./userController');
+const createUserController = require('./../../controllers/users/create');
+const getUserController = require('./../../controllers/users/read');
+// 🔧 Middlewares
+const auth = require('../../middlewares/auth');
 
 // ⚙️ Using router functionality
 const router = express.Router();
@@ -18,7 +21,16 @@ router.post(
         check('email', 'Email is required').isEmail(),
         check('password', 'Password is required and should be at least 6 characters').isLength({ min: 6 })
     ],
-    userController.createUser,
+    createUserController,
+);
+
+router.get(
+    '/',
+    auth,
+    getUserController,
 );
 
 module.exports = router;
+
+// TODO Create update service
+// TODO Create delete service

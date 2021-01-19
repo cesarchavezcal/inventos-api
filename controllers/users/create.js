@@ -1,13 +1,13 @@
 // 📕 Glossary
-const glossary = require('./../../glossary')
+const glossary = require('../../glossary')
 // 💾 Database Model
-const User = require('./UserModel');
+const User = require('../../models/users');
 // 📦 Dependencies
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 
-exports.createUser = async (req, res) => {
+module.exports = async (req, res) => {
     // ⚠️ Do we have errors from req?
     const errors = validationResult(req);
     // ⚙️ Check if we have errors and stop process

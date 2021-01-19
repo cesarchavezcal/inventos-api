@@ -1,7 +1,7 @@
 // 📕 Glossary
 const glossary = require('./../../glossary')
 // 💾 Database Model
-const User = require('./../users/UserModel');
+const User = require('./../../models/users');
 // 📦 Dependencies
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');

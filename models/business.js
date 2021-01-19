@@ -12,7 +12,11 @@ const BusinessSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    created: {
+    created_at: {
+        type: Date,
+        default: Date.now()
+    },
+    updated_at: {
         type: Date,
         default: Date.now()
     }
